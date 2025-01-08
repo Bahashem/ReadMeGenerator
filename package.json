@@ -1,7 +1,7 @@
 {
   "name": "static-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "App that creates a high-quality README for GitHub",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "8.2.4"
-  }
+    "inquirer": "8.2.4",
+    "mdmod-plugin-toc": "^0.1.1"
+  },
+  "devDependencies": {},
+  "keywords": []
 }
