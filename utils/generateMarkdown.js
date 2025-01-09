@@ -3,54 +3,70 @@
 function renderLicenseBadge(license) {
   
     switch (license) {
-      case 'None':
-      return 'No license selected';
+     
       case 'Apache License 2.0':
-        return ; 
-      case 'GNU General Public License':
-        return;
+       return '[![License:MIT](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'; 
+        
+      case 'GNU General Public':
+        return '[![License: GNU](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://opensource.org/licenses/gpl-3.0)'; 
+      
       case 'MIT Lisense':
-        return; 
+        return '[![License:MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'; 
+      
       case 'Mozilla Public License 2.0':
-        return;
+        return '[![License:MIT](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
+      default:
+          return ''; 
     }
   }
-  }
-}
-if ()// if license ! None then or switch
-  ![Static Badge](https://img.shields.io/badge/:badgeContent)
+
+  //![Static Badge](https://img.shields.io/badge/:badgeContent)
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  const licenses ={
+    'Apache License 2.0': 'https://opensource.org/licenses/Apache-2.0',
+    'GNU General Public': 'https://opensource.org/licenses/GPL-3.0',
+    'MIT Lisense': 'https://opensource.org/licenses/MIT',
+    'Mozilla Public License 2.0': 'https://opensource.org/licenses/MPL-2.0',
+  };
+  return licenses[license] || ''; 
+}
 //
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (!license === license 'None') return '';
+  return `## License\n This project is licensed under the ${license}.`;
+}
 
 // TODO: Create a function to generate markdown for README
+
 function generateMarkdown(data) {
-  return `# ${data.title} 
+  return `
+  
+  # ${data.project} README
 
-  ####${data.project} README
-
-My project is licensed under: ![GitHub License]https://img.shields.io/github/license/:username/:project)].
+  ${renderLicenseBadge(data.license)}
 
   ## Description
 
   ${data.description}
 
-  ##Table of Content
+  ## Table of Content
   -[Installation Instructions](#installation)
   -[Usage Information](#usage)
   -[Contribution Guidelines](#contribution)
-  -[License](#contribution)
+  -[License](#license)
+  -[Tests](#tests)
+  -[Questions](#qwestions)
 
-  ##Installation Instructions
+  ## Installation Instructions
 
   ${data.installation}
 
-  ##Usage Information
+  ## Usage Information
 
   ${data.usage}
 
@@ -58,21 +74,19 @@ My project is licensed under: ![GitHub License]https://img.shields.io/github/lic
 
   ${data.contribution}
 
-  ##Test Instructions
+  ## License
+  ${renderLicenseSection(data.license)}
+
+  ## Test Instructions
 
   ${data.tests}
 
-  ##Questions
-If you have questions, contact me at:
-${username}
-${github}
-${email}
-
-
-
-
+  ## Questions
+If you have any questions, feel free to contact me at:
+-GitHub: [${data.github}](https://github.com/${github})
+-Email: [${data.email}](mailto:${data.email})
 
 `;
 }
 
-export default generateMarkdown;
+module.exports = generateMarkdown;
