@@ -6,7 +6,7 @@ import generateMarkdown from './utils/generateMarkdown.js';
 // TODO: Create an array of questions for user input
 
 const questions = [
-    {type: 'input', name: 'username',message: `What is your GitHub username?`},
+    {type: 'input', name: 'github',message: `What is your GitHub username?`},
     {type: 'input', name: 'email', message: `What is your email address?`},
     {type: 'input', name: 'project', message: `What is the name of your project?`},
     {type: 'input', name: 'description',message: `Provide a short description explaining the what, why, and how of your project.`},
