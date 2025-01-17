@@ -20,11 +20,23 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data){
-    fs.writeFile(fileName, data, (err) =>
-    err ? console.log(err) :console.log(`${fileName} has been successfully created!`)
-    );
-}
-
+    fs.writeFile(fileName, data, (err) =>{
+        if (err) {
+            if (err.code === 'ENOENT'){
+                console.error(`Error: The specific path "${fileName}" does not exist.`);
+            } else if (err.code === 'EACCES'){
+                console.error(`Error: Insufficient permission to write to "${fileName}".`);
+            } else {
+                console.error(`An unexpected error occured while writing to the file: ${err.message}`);
+            }
+            console.error(`Error Stack: ${err.stack}`);
+        } else {
+            console.log(`"${fileName}" has been successfully created!`);
+        }
+        });
+    }
+                    
+  
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then ((answers) => {

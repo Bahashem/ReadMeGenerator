@@ -8,7 +8,7 @@ function renderLicenseBadge(license) {
     case "GNU General Public":
       return "[![License: GNU](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://opensource.org/licenses/gpl-3.0)";
 
-    case "MIT Lisense":
+    case "MIT License":
       return "[![License:MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
 
     case "Mozilla Public License 2.0":
@@ -26,7 +26,7 @@ function renderLicenseLink(license) {
   const licenses = {
     "Apache License 2.0": "https://opensource.org/licenses/Apache-2.0",
     "GNU General Public": "https://opensource.org/licenses/GPL-3.0",
-    "MIT Lisense": "https://opensource.org/licenses/MIT",
+    "MIT License": "https://opensource.org/licenses/MIT",
     "Mozilla Public License 2.0": "https://opensource.org/licenses/MPL-2.0",
   };
   return licenses[license] || "";
@@ -53,7 +53,7 @@ function generateMarkdown(data) {
   ${data.description}
 
   ## Table of Content
-  1.[Installation Instructions](#installation-instructions)
+  1.[Installation Instructions](#installation-Instructions)
   2.[Usage Information](#usage-information)
   3.[Contribution](#contribution)
   4.[Tests](#tests)
